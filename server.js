@@ -47,6 +47,8 @@ app.post("/api/users/:_id/exercises", async function (req, res) {
     postdate = new Date();
   } else if (isNaN(Date.parse(postdate))) {
     res.json({ err: "INVALID DATE" })
+  } else {
+    postdate = new Date(postdate);
   }
   postdate = Datelib.format(postdate, 'ddd MMM DD YYYY');
 
